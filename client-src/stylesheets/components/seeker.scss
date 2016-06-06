@@ -1,0 +1,13 @@
+
+@import '~codemirror/lib/codemirror.css';
+
+.seeker {
+  display: flex;
+  flex-wrap: wrap;
+  button {
+    width: 30px;
+  }
+  .seeker-bar {
+    flex-grow: 1;
+  }
+}
