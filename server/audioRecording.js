@@ -41,18 +41,6 @@ class AudioRecording extends ee {
     this[metaSymbol].push(thing);
   }
 
-  // processMeta() {
-  //   return this[metaSymbol].reduce((metaObj, current) => {
-  //     const roundedTimestamp = Math.floor(current.timestamp / 10) * 10;
-  //     if(metaObj[roundedTimestamp]) {
-  //       metaObj[roundedTimestamp].push(current);
-  //     } else {
-  //       metaObj[roundedTimestamp] = [current];
-  //     }
-  //     return metaObj;
-  //   }, {});
-  // }
-
   end() {
     console.log('end fired!')
     if(this.ended) { return; }
@@ -66,7 +54,6 @@ class AudioRecording extends ee {
   get fileName() {
     return `${this.id}.wav`;
   }
-
 }
 
 module.exports = AudioRecording;

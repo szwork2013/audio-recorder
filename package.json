@@ -4,16 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "babel-node ./server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "bcrypt": "^0.8.6",
+    "body-parser": "^1.15.1",
     "express": "^4.13.4",
+    "helmet": "^2.1.1",
+    "jsonwebtoken": "^7.0.0",
+    "knex": "^0.11.5",
+    "lodash": "^4.13.1",
+    "pg": "^5.0.0",
     "socket.io": "^1.4.6",
     "socket.io-stream": "^0.9.0",
     "wav": "^1.0.0"
+  },
+  "babel": {
+    "plugins": [
+      "transform-async-to-generator"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
