@@ -31,6 +31,7 @@ class Problem extends Row{
           Document.create({ problem_id: problem.id, role: 'test' }),
           Document.create({ problem_id: problem.id, role: 'code' })
         ])
+        .then(() => problem);
       });
   }
 }

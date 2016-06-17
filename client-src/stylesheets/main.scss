@@ -1,0 +1,39 @@
+@import '~basscss/css/basscss.css';
+@import '~basscss-basic/index.css';
+@import '~codemirror/lib/codemirror.css';
+@import './variables.scss';
+
+@import '~colors.css/css/colors.css';
+@import '~colors.css/src/_variables.css';
+// @import '~basscss-addons/modules/colors/index.css';
+// @import '~basscss-addons/modules/background-colors/index.css';
+// @import '~basscss-addons/modules/background-images/index.css';
+// @import '~basscss-addons/modules/border-colors/index.css';
+@import '~basscss-addons/modules/forms/index.css';
+@import '~basscss-addons/modules/btn/index.css';
+@import '~basscss-addons/modules/btn-primary/index.css';
+@import '~basscss-addons/modules/btn-outline/index.css';
+
+@import './components/seeker.scss';
+@import './components/navigation.scss';
+
+.bg-image {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 120px;
+}
+
+a {
+  text-decoration: none;
+  &:hover{ text-decoration: underline }
+}
+
+.main-container {
+  min-height: 90vh;
+  padding-top: 1em;
+}

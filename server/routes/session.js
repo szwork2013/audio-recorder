@@ -12,8 +12,9 @@ ctrl.regester('create', async (req, res, next) => {
   if(!isLoggedIn) {
     throw new Error('incorrect email or password');
   }
+  const token = await jwt.sign({ id: user.id });
   res.status(201);
-  return jwt.sign({ id: user.id });
+  return { token };
 });
 
 router.post('/', ctrl.create);

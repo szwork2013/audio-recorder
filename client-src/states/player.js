@@ -1,7 +1,7 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 const AudioPlayback = require('../audioPlayback');
-const Seeker = require('./Seeker');
+const Seeker = require('../components/Seeker');
 const Codemirror = require('react-codemirror');
 
 class Player extends React.Component {

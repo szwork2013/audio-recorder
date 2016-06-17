@@ -1,3 +1,6 @@
-require('!style!css!sass!./stylesheets/components/seeker.scss');
+window.Promise = require('bluebird');
+require('!style!css!sass!./stylesheets/main.scss');
 
-require('./components/main');
+require('./states/router');
+
+require('./auth');

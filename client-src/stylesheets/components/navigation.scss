@@ -1,0 +1,10 @@
+nav {
+  a {
+    color: $navy;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

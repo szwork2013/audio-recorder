@@ -15,13 +15,17 @@ class AudioRecording extends ee {
   constructor() {
     super(...arguments);
     this[metaSymbol] = [];
-    this.id = Date.now();
     this.ended = false;
     this.started = false;
   }
 
+  setId(id) {
+    if(this.id) { throw new Error('id already set'); }
+    this.id = id;
+  }
+
   start(stream) {
-    console.log('start fired!')
+    if(!this.id) { throw new Error('cannot start without id'); }
     this.started = true;
     this[fileWriterSym] = new wav.FileWriter(baseDir + '/' + this.fileName, {
       channels: 1,
@@ -35,20 +39,18 @@ class AudioRecording extends ee {
   }
 
   meta(thing) {
-    console.log('meta called!');
     if(!this.started) { return; }
     if(this.ended) { return; }
     this[metaSymbol].push(thing);
   }
 
   end() {
-    console.log('end fired!')
     if(this.ended) { return; }
     if(!this.started) { return; }
     this.ended = true;
     this[fileWriterSym].end();
-    fs.writeFile(baseDir + '/' + this.id + '.json', JSON.stringify(this[metaSymbol]), console.log.bind(console));
-    this.emit('end');
+    // fs.writeFile(baseDir + '/' + this.id + '.json', JSON.stringify(this[metaSymbol]), console.log.bind(console));
+    this.emit('end', this[metaSymbol]);
   }
 
   get fileName() {

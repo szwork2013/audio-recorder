@@ -9,6 +9,7 @@ CREATE TABLE "problem" (
   "id" SERIAL PRIMARY KEY,
   "parent_id" int,
   "title" varchar(255),
+  "description" varchar(255),
   "user_id" int,
   FOREIGN KEY("user_id") REFERENCES "user" ("id")
 );

@@ -1,4 +1,4 @@
-const Problem = require('../db/models/problem');
+const Document = require('../db/models/document');
 const Controller = require('./controller');
 const ctrl = new Controller();
 const jwt = require('../jwt');
@@ -9,26 +9,33 @@ module.exports = router;
 router.use(jwt.expressMiddleware);
 
 ctrl.regester('create', (req, res) => {
-  req.body.user_id = req.user.id;
   res.status(201);
-  return Problem.create(req.body);
+  return Document.create(req.body);
 });
 
 ctrl.regester('view', (req, res) => {
-  return Problem.findById(req.params.id);
+  return Document.findById(req.params.id);
 });
 
 ctrl.regester('index', (req, res) => {
-  return Problem.find(req.query);
+  return Document.find(req.query);
 });
 
 ctrl.regester('remove', async (req, res) => {
-  const problem = await Problem.findById(req.params.id);
-  await problem.remove();
+  const document = await Document.findById(req.params.id);
+  await document.remove();
+});
+
+ctrl.regester('update', async (req, res) => {
+  const document = await Document.findById(req.params.id);
+  Object.assign(document, req.body);
+  res.status(201);
+  return document.save();
 });
 
 router.post('/', ctrl.create);
 router.get('/:id', ctrl.view);
+router.put('/:id', ctrl.update);
 router.get('/', ctrl.index);
 router.delete('/:id', ctrl.remove);
 

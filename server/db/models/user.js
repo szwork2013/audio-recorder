@@ -26,6 +26,11 @@ class User extends Row {
     ]
     return super.validate(diff, obj, checks);
   }
+  
+  get blacklist() {
+    return ['password'];
+  }
 }
+
 
 module.exports = User;

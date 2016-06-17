@@ -2,7 +2,8 @@ module.exports = {
   entry: './client-src/index.js',
   devtool: 'source-map',
   output: {
-    filename: './public/client.js'
+    path: __dirname + '/public',
+    filename: './client.js'
   },
   module: {
     loaders: [

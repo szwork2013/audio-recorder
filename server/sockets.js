@@ -17,7 +17,13 @@ module.exports = server => {
 
     });
 
-    socket.on('audio-meta', recording.meta.bind(recording));
+    socket.on('audio-set-id', id => {
+      recording.setId(id);
+    })
+
+    socket.on('audio-meta', data => {
+      recording.meta(data);
+    })
 
     socket.on('disconnect', () => {
       recording.end();

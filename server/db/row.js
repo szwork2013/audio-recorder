@@ -34,13 +34,9 @@ class Row {
     return !!this.diff[path];
   }
 
-  toObject(exceptions) {
+  toJSON(exceptions=[]) {
     const blacklist = _.difference(this.blacklist, exceptions);
     return _.omit(this, blacklist);
-  }
-
-  toJSON() {
-    return JSON.stringify(this.toObject());
   }
 
   get blacklist() {
@@ -86,7 +82,7 @@ class Row {
     return this.name.toLowerCase();
   }
 
-  static async find(query, modifySql) {
+  static async find(query={}, modifySql) {
     let docs = connection
       .select('*')
       .from(this.tableName)
